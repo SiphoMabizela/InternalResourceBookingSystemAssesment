@@ -1,0 +1,56 @@
+﻿@using IRBSui.Models
+@model Booking
+
+<div class="modal-header">
+    <h5 class="modal-title">Create Booking</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+    @using (Html.BeginForm("Create", "Booking", FormMethod.Post, new { @id = "createBookingForm" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="mb-3">
+            @Html.LabelFor(m => m.ResourceId, htmlAttributes: new { @class = "form-label" })
+            @Html.DropDownListFor(m => m.ResourceId, (SelectList)ViewBag.AvailableResources, "Select a resource", new { @class = "form-control", required = "required" })
+            @Html.ValidationMessageFor(m => m.ResourceId, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(m => m.StartTime, htmlAttributes: new { @class = "form-label" })
+            @Html.TextBoxFor(m => m.StartTime, new
+            {
+                @class = "form-control",
+                @type = "datetime-local",
+                required = "required"
+            })
+            @Html.ValidationMessageFor(m => m.StartTime, "", new { @class = "text-danger" })
+        </div>
+        <div class="mb-3">
+            @Html.LabelFor(m => m.EndTime, htmlAttributes: new { @class = "form-label" })
+            @Html.TextBoxFor(m => m.EndTime, new
+            {
+                @class = "form-control",
+                @type = "datetime-local",
+                required = "required"
+            })
+            @Html.ValidationMessageFor(m => m.EndTime, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(m => m.BookedBy, htmlAttributes: new { @class = "form-label" })
+            @Html.TextBoxFor(m => m.BookedBy, new { @class = "form-control", placeholder = "Enter booked by" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(m => m.Purpose, htmlAttributes: new { @class = "form-label" })
+            @Html.TextAreaFor(m => m.Purpose, new { @class = "form-control", placeholder = "Enter purpose", rows = 3 })
+        </div>
+
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-success">Save Booking</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        </div>
+    }
+</div>
+

@@ -1,0 +1,57 @@
+﻿@using IRBSui.Models
+@model Resource
+
+<div class="modal-header">
+    <h5 class="modal-title">Create Resource</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+    @using (Html.BeginForm("Create", "Home", FormMethod.Post, new { @id = "createResourceForm" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="mb-3">
+            @Html.LabelFor(m => m.Name, htmlAttributes: new { @class = "form-label" })
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Enter name", required = "required" })
+            @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(m => m.Description, htmlAttributes: new { @class = "form-label" })
+            @Html.TextAreaFor(m => m.Description, new { @class = "form-control", placeholder = "Enter description", rows = 3 })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(m => m.Location, htmlAttributes: new { @class = "form-label" })
+            @Html.TextBoxFor(m => m.Location, new { @class = "form-control", placeholder = "Enter location" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(m => m.Capacity, htmlAttributes: new { @class = "form-label" })
+            @Html.TextBoxFor(m => m.Capacity, new
+            {
+                @class = "form-control",
+                placeholder = "Enter capacity",
+                type = "number",
+                min = "0",
+                oninput = "this.value = Math.abs(this.value)"
+            })
+            @Html.ValidationMessageFor(m => m.Capacity, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-check mb-2">
+            @Html.CheckBoxFor(m => m.IsAvailable, new { @class = "form-check-input", id = "IsAvailable" })
+            @Html.LabelFor(m => m.IsAvailable, new { @class = "form-check-label" })
+        </div>
+
+        <div class="form-check mb-3">
+            @Html.CheckBoxFor(m => m.IsUnderMaintenance, new { @class = "form-check-input", id = "IsUnderMaintenance" })
+            @Html.LabelFor(m => m.IsUnderMaintenance, new { @class = "form-check-label" })
+        </div>
+
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-success">Save Resource</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        </div>
+    }
+</div>

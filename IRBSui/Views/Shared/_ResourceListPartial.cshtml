@@ -1,0 +1,71 @@
+﻿@using IRBSui.Models
+@model List<Resource>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Location</th>
+            <th>Capacity</th>
+            <th>Available</th>
+            <th>Under Maintenance</th>
+            <th>Linked Bookings</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var resource in Model)
+        {
+            <tr>
+                <td>@resource.Name</td>
+                <td>@resource.Description</td>
+                <td>@resource.Location</td>
+                <td>@resource.Capacity</td>
+                <td>@resource.IsAvailable</td>
+                <td>@resource.IsUnderMaintenance</td>
+                <td>
+                    @if (resource.LinkedBookings != null && resource.LinkedBookings.Any())
+                    {
+                        <select class="form-select">
+                            @foreach (var booking in resource.LinkedBookings)
+                            {
+                                <option>
+                                    @booking.StartTime.ToString("g") - @booking.EndTime.ToString("g") (@booking.BookedBy)
+                                </option>
+                            }
+                        </select>
+                    }
+                    else
+                    {
+                        <span class="text-muted">No bookings</span>
+                    }
+                </td>
+                <td>
+                    <button type="button" class="btn btn-outline-primary btn-sm" data-id="@resource.Id" onclick="showDetailsModal(@resource.Id)">
+                        <i class="bi bi-eye"></i> View
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="modal fade" id="detailsModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body" id="detailsModalBody">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-3.7.0.min.js"></script>
+<script>
+    function showDetailsModal(id) {
+        $.get('/Home/DetailsPartial/' + id, function (data) {
+            $('#detailsModalBody').html(data);
+            $('#detailsModal').modal('show');
+        });
+    }
+</script>

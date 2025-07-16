@@ -1,0 +1,47 @@
+﻿@using IRBSui.Models
+@model List<Booking>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Booked By</th>
+            <th>Purpose</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var booking in Model)
+        {
+            <tr>
+                <td>@booking.StartTime</td>
+                <td>@booking.EndTime</td>
+                <td>@booking.BookedBy</td>
+                <td>@booking.Purpose</td>
+                <td>
+                    <button type="button" class="btn btn-outline-primary btn-sm" data-id="@booking.Id" onclick="showDetailsModal(@booking.Id)">
+                        <i class="bi bi-eye"></i> View
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="modal fade" id="detailsModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body" id="detailsModalBody">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-3.7.0.min.js"></script>
+<script>function showDetailsModal(id) {
+        $.get('/Booking/DetailsPartial/' + id, function (data) {
+            $('#detailsModalBody').html(data);
+            $('#detailsModal').modal('show');
+        });
+    }</script>

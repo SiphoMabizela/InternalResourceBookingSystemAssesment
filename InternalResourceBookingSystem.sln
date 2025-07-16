@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35431.28
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IRBSui", "IRBSui\IRBSui.csproj", "{A4BDEC19-1506-4A42-B49F-9F0CE8AD839B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IRBSapi", "IRBSapi\IRBSapi.csproj", "{E353EC30-BEAD-43E6-A398-61322B74025F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A4BDEC19-1506-4A42-B49F-9F0CE8AD839B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4BDEC19-1506-4A42-B49F-9F0CE8AD839B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4BDEC19-1506-4A42-B49F-9F0CE8AD839B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4BDEC19-1506-4A42-B49F-9F0CE8AD839B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E353EC30-BEAD-43E6-A398-61322B74025F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E353EC30-BEAD-43E6-A398-61322B74025F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E353EC30-BEAD-43E6-A398-61322B74025F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E353EC30-BEAD-43E6-A398-61322B74025F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EFA24AF6-6EAF-4F48-A554-9997C78A972B}
+	EndGlobalSection
+EndGlobal
