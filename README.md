@@ -53,7 +53,7 @@ Scaffold-DbContext "Data Source=YOURCONNECTIONNAME; Initial Catalog=InternalReso
 
 **************************************************************************************************************************************************************************
 
-Images are also attached on the project in a folder called IMAGEPROJECT
+Images to show that the system is working are attached on the IRBSui project in a folder called IMAGEPROJECT
 
 **************************************************************************************************************************************************************************
 
