@@ -150,6 +150,16 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="IMAGEPROJECT\R1.png" />
+    <Content Include="IMAGEPROJECT\R10.png" />
+    <Content Include="IMAGEPROJECT\R2.png" />
+    <Content Include="IMAGEPROJECT\R3.png" />
+    <Content Include="IMAGEPROJECT\R4.png" />
+    <Content Include="IMAGEPROJECT\R5.png" />
+    <Content Include="IMAGEPROJECT\R6.png" />
+    <Content Include="IMAGEPROJECT\R7.png" />
+    <Content Include="IMAGEPROJECT\R8.png" />
+    <Content Include="IMAGEPROJECT\R9.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
